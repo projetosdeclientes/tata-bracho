@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "ideias-projetos.html",
+  "entry": "ideias-projetos.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-01T21:08:02.245Z",
+  "updatedAt": "2026-09-01T21:08:02.245Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}
