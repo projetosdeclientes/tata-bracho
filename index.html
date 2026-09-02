@@ -12,23 +12,21 @@
 <body>
   <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-  <header class="site-header" style="position: fixed; top: 0; width: 100%; transform: translateY(-100%); opacity: 0; pointer-events: none; z-index: 1000;">
-    <div class="header-inner">
-      <nav class="header-nav">
-        <a href="index.html" class="header-logo" aria-label="Tatá Bracho 7720 - Início">
-          Tatá Bracho 7720
-        </a>
-        <ul class="header-links">
-          <li><a href="index.html" class="header-link active" aria-current="page">Início</a></li>
-          <li><a href="sobre.html" class="header-link">Sobre mim</a></li>
-          <li><a href="ideias-projetos.html" class="header-link">Ideias & Projetos</a></li>
-          <li><a href="comunidade.html" class="header-link">Comunidade</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="site-header site-header--floating">
+  <div class="minimalist-hero-header">
+    <a href="index.html" class="minimalist-hero-logo" aria-label="Tatá Bracho 7720 - Início">
+      Tatá Bracho 7720
+    </a>
+    <nav class="minimalist-hero-nav" aria-label="Navegação principal">
+      <a href="index.html" class="minimalist-nav-link active" aria-current="page">Início</a>
+      <a href="sobre.html" class="minimalist-nav-link">Sobre mim</a>
+      <a href="ideias-projetos.html" class="minimalist-nav-link">Ideias & Projetos</a>
+      <a href="comunidade.html" class="minimalist-nav-link">Comunidade</a>
+    </nav>
+  </div>
+</header>
   </header>
 
-  <div class="background-layers">
     <div class="bg-gradient"></div>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -200,11 +198,12 @@
   </footer>
 
   <script>
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-    const siteHeader = document.querySelector('.site-header');
-    const heroSection = document.querySelector('.minimalist-hero');
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const siteHeader = document.querySelector('.site-header');
+  const heroSection = document.querySelector('.minimalist-hero > .minimalist-hero-header');
 
+  if (mobileMenuBtn && mobileNav) {
     mobileMenuBtn.addEventListener('click', () => {
       const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
       mobileMenuBtn.setAttribute('aria-expanded', !expanded);
@@ -224,8 +223,9 @@
         mobileNav.style.display = 'none';
       }
     });
+  }
 
-    // Show/hide fixed header based on hero section visibility
+// Show/hide fixed header based on hero section visibility
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -234,11 +234,11 @@
           siteHeader.classList.add('visible');
         }
       });
-    }, { rootMargin: '0px 0px -50% 0px', threshold: 0 });
+    }, { rootMargin: '0px 0px 0px 0px', threshold: 0 });
 
-    if (heroSection) {
-      heroObserver.observe(heroSection);
-    }
-  </script>
+  if (heroSection) {
+    heroObserver.observe(heroSection);
+  }
+</script>
 </body>
 </html>
